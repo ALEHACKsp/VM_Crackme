@@ -28,16 +28,16 @@ int main()
 	// correct key "viva la revolution"
 	std::string pass;
 
-	std::cout << "key: ";
+	std::cout << std::string(OBFSL("Enter key: \r\n"));
 	std::getline(std::cin, pass);
 
 	const char* pass_check = pass.c_str();
 	bool password = vm.TestVm(pass_check);
 
 	IF (password==true)
-		log("Correct key\r\n");
+		log(std::string(OBFSL("Correct key\r\n")));
 	ELSE
-		log("Fail\r\n");
+		log(std::string(OBFSL("Fail\r\n")));
 	ENDIF
 
 	system("pause");
