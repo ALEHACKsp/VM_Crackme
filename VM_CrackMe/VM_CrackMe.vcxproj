@@ -92,6 +92,7 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>WIN32;_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
+      <LanguageStandard>stdcpp17</LanguageStandard>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -159,6 +160,18 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="instr.h" />
+    <ClInclude Include="kscope\impl\kscope_common.h" />
+    <ClInclude Include="kscope\impl\kscope_context.h" />
+    <ClInclude Include="kscope\impl\kscope_injection.h" />
+    <ClInclude Include="kscope\impl\kscope_literal.h" />
+    <ClInclude Include="kscope\impl\kscope_prng.h" />
+    <ClInclude Include="kscope\kscope.h" />
+    <ClInclude Include="kscope\kscope_sample_extension.h" />
+    <ClInclude Include="obf\impl\obf_anti_debug.h" />
+    <ClInclude Include="obf\kscope_extension_for_obf.h" />
+    <ClInclude Include="obf\obf.h" />
+    <ClInclude Include="obf\obf_lib.h" />
+    <ClInclude Include="obf\obf_user_injection.h" />
     <ClInclude Include="tools.h" />
     <ClInclude Include="vm.h" />
   </ItemGroup>

@@ -1,4 +1,9 @@
-﻿#include "vm.h"
+﻿#define ITHARE_OBF_SEED  0x4b295ebab3333abc
+#define ITHARE_OBF_SEED2 0x36e007a38ae8e0ea
+
+#include "obf/obf.h"
+
+#include "vm.h"
 #include "instr.h"
 #include <iostream>
 #include <Windows.h>

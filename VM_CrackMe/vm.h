@@ -1,5 +1,10 @@
 #pragma once
 
+#define ITHARE_OBF_SEED  0x4b295ebab3333abc
+#define ITHARE_OBF_SEED2 0x36e007a38ae8e0ea
+
+#include "obf/obf.h"
+
 #include "Windows.h"
 
 struct virt_proc

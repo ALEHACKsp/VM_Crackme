@@ -38,5 +38,41 @@
     <ClInclude Include="instr.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="kscope\impl\kscope_common.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="kscope\impl\kscope_context.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="kscope\impl\kscope_injection.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="kscope\impl\kscope_literal.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="kscope\impl\kscope_prng.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="kscope\kscope.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="kscope\kscope_sample_extension.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="obf\impl\obf_anti_debug.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="obf\kscope_extension_for_obf.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="obf\obf.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="obf\obf_lib.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="obf\obf_user_injection.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>
