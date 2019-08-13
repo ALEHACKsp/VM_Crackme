@@ -39,7 +39,10 @@ bool OldVirtualMachine::LoadProgramm(LPVOID CodeAddr, int CodeSize, LPVOID DataA
 		mem.stack.size = N(stack_block_size);
 	ENDIF
 	//проверим что всё ок
-	IF (mem.code.size == N(0) || mem.data.size == N(0) || mem.stack.size == N(0))
+	int mcs = mem.code.size;
+	int mds = mem.code.size;
+	int mss = mem.code.size;
+	IF (V(mcs)== N(0) || V(mds) == N(0) || V(mss) == N(0))
 		RETURN(false);
 	ENDIF
 	//загрузим код
@@ -51,7 +54,7 @@ bool OldVirtualMachine::LoadProgramm(LPVOID CodeAddr, int CodeSize, LPVOID DataA
 	ENDIF
 
 	//загрузим данные
-	IF (DataSize > 0 && DataSize < data_block_size)
+	IF (V(DataSize) > N(0) && V(DataSize) < N(data_block_size))
 		//тупо скопируем
 		mem_copy(DataAddr, (LPVOID)mem.data.real_addr, V(DataSize));
 	ELSE
@@ -64,9 +67,12 @@ bool OldVirtualMachine::LoadProgramm(LPVOID CodeAddr, int CodeSize, LPVOID DataA
 	mem.stack.virt_addr = N(stack_base);
 
 	//настроим регистры
-	mem_zero(&reg, sizeof(reg));
-	reg.eip = (DWORD)mem.code.virt_addr;
-	reg.esp = (DWORD)mem.stack.virt_addr;
+	int sz = sizeof(reg);
+	mem_zero(&reg, V(sz));
+	DWORD sva= (DWORD)mem.code.virt_addr;
+	reg.eip = V(sva);
+	DWORD sva1 = (DWORD)mem.stack.virt_addr;
+	reg.esp = V(sva1);
 
 	RETURN(true);
 	OBF_END
@@ -517,16 +523,16 @@ bool OldVirtualMachine::cmd_jmp(DWORD delta, DWORD condition)
 	switch (condition)
 	{
 	case jmp_above:
-		IF (reg.carry_flag == 0 && reg.zero_flag == 0) cond_valid = true; ENDIF
+		IF (reg.carry_flag == N(0) && reg.zero_flag == N(0)) cond_valid = true; ENDIF
 		break;
 	case jmp_below:
-		IF (reg.carry_flag == 1 && reg.zero_flag == 0) cond_valid = true;ENDIF
+		IF (reg.carry_flag == N(1) && reg.zero_flag == N(0)) cond_valid = true;ENDIF
 		break;
 	case jmp_equal:
-		IF (reg.carry_flag == 0 && reg.zero_flag == 1) cond_valid = true;ENDIF
+		IF (reg.carry_flag == N(0) && reg.zero_flag == N(1)) cond_valid = true;ENDIF
 		break;
 	default:
-		return (false);
+		RETURN (false);
 	}
 	//сменим EIP
 	IF (cond_valid)

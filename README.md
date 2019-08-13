@@ -4,4 +4,4 @@
 https://github.com/vxlabinfo/VM_CrackMe_1
 
 ## Improvements
-add obfuscation with obfy @fritzone
+add obfuscation https://github.com/fritzone/obfy
